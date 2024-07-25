@@ -1,32 +1,33 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Yash Patki | Portfolio",
-  description: "Yash Patki's personal portfolio website. A place to showcase my work and projects.",
+    title: "Yash Patki | Portfolio",
+    description:
+        "Yash Patki's personal portfolio website. A place to showcase my work and projects.",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-      <html lang="en">
-          <body className={inter.className}>
-              <ThemeProvider
-                  attribute="class"
-                  defaultTheme="system"
-                  enableSystem
-                  disableTransitionOnChange
-              >
-                  {children}
-              </ThemeProvider>
-          </body>
-      </html>
-  );
+    return (
+        <html lang="en">
+            <body className={roboto.className}>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
+            </body>
+        </html>
+    );
 }

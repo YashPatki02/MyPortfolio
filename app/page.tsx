@@ -1,85 +1,34 @@
 import Image from "next/image";
-import Link from "next/link";
+import Head from "next/head";
+import { ToggleMode } from "@/components/ToggleMode";
+import Resume from "@/components/Resume";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-                <div className="w-[100%] flex items-center justify-between">
-                    <Link href="/helloworold">Heloo</Link>
-                </div>
-                <section>
-                    <h1>About Me</h1>
-                    <p>
-                        Write a brief introduction about yourself and your CS
-                        background.
-                    </p>
-                </section>
+        <div className="flex flex-col min-h-screen">
+            <header className="p-3">
+                <nav className="flex justify-center items-center">
+                    <div className="text-lg">Yash Patki.</div>
 
-                <section>
-                    <h1>Experience</h1>
-                    <ul>
+                    <div className="flex-grow" />
+                    <ul className="flex space-x-4">
                         <li>
-                            <h2>Company Name</h2>
-                            <p>Job Title</p>
-                            <p>Date Range</p>
-                            <p>
-                                Description of your responsibilities and
-                                achievements.
-                            </p>
+                            <a href="#about">About</a>
                         </li>
-                        {/* Add more experience items as needed */}
-                    </ul>
-                </section>
-
-                <section>
-                    <h1>Education</h1>
-                    <ul>
                         <li>
-                            <h2>University Name</h2>
-                            <p>Degree</p>
-                            <p>Date Range</p>
-                            <p>
-                                Description of your studies and any notable
-                                projects.
-                            </p>
+                            <a href="#projects">Projects</a>
                         </li>
-                        {/* Add more education items as needed */}
-                    </ul>
-                </section>
-
-                <section>
-                    <h1>Projects</h1>
-                    <ul>
                         <li>
-                            <h2>Project Name</h2>
-                            <p>Description of the project and your role.</p>
-                            <p>
-                                Technologies used: List the technologies used in
-                                the project.
-                            </p>
+                            <a href="#contact">Contact</a>
                         </li>
-                        {/* Add more project items as needed */}
-                    </ul>
-                </section>
-
-                <section>
-                    <h1>Resume</h1>
-                    <p>Include a link to your resume for download.</p>
-                </section>
-
-                <section>
-                    <h1>Links</h1>
-                    <ul>
                         <li>
-                            <Link href="https://github.com/your-username">
-                                Github
-                            </Link>
+                            <ToggleMode />
                         </li>
-                        {/* Add more links as needed */}
                     </ul>
-                </section>
-            </div>
-        </main>
+                </nav>
+            </header>
+
+            <Resume />
+        </div>
     );
 }
