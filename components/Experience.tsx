@@ -37,7 +37,7 @@ const Experience = ({
                         <AvatarImage
                             src={logoUrl}
                             alt={company}
-                            className="object-contain"
+                            className="object-cover"
                         />
                         <AvatarFallback>{company[0]}</AvatarFallback>
                     </Avatar>

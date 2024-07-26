@@ -12,6 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import Experience from "./Experience";
+import Project from "./Project";
 
 const Resume = () => {
     const [selected, setSelected] = useState(1);
@@ -62,21 +63,31 @@ const Resume = () => {
             </div>
             <div className="flex w-1/2 items-start justify-center">
                 <div>
-                    <h1>{selected}</h1>
                     {selected == 1 && (
                         <div className="mb-4 ml-4 mt-8 mr-8 border-l pl-10">
-                            <Avatar className="border size-16">
-                                <AvatarImage
-                                    src={DATA.avatarUrl}
-                                    alt="Yash Patki"
-                                    className="object-cover"
-                                />
-                                <AvatarFallback>{DATA.initials}</AvatarFallback>
-                            </Avatar>
+                            <div className="flex flex-row items-center justify-start gap-2">
+                                <div>
+                                    <h1 className="mt-4 text-2xl font-semibold">
+                                        Hi, I'm {DATA.name} 👋
+                                    </h1>
+                                    <h2 className="text-muted-foreground">
+                                        Full-Stack Developer | Frontend
+                                        Developer
+                                    </h2>
+                                </div>
 
-                            <h1 className="mt-4 text-2xl font-semibold">
-                                Hi, I'm {DATA.name} 👋
-                            </h1>
+                                <Avatar className="border size-20">
+                                    <AvatarImage
+                                        src={DATA.avatarUrl}
+                                        alt="Yash Patki"
+                                        className="object-cover"
+                                    />
+                                    <AvatarFallback>
+                                        {DATA.initials}
+                                    </AvatarFallback>
+                                </Avatar>
+                            </div>
+
                             <p className="mt-4 text-sm">{DATA.description}</p>
                             <p className="mt-4 text-sm">{DATA.summary}</p>
 
@@ -178,6 +189,13 @@ const Resume = () => {
                                 <Experience key={idx} {...work} />
                             ))}
                         </ul>
+                    )}
+                    {selected == 4 && (
+                        <div className="mb-4 ml-4 mt-18 mr-8 border-l grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+                                {DATA.projects.map((project, idx) => (
+                                    <Project key={idx} {...project} />
+                                ))}
+                        </div>
                     )}
                 </div>
             </div>

@@ -72,7 +72,7 @@ export const DATA = {
             href: "https://cse.ucsd.edu",
             location: "San Diego, CA",
             title: "CSE Tutor - CSE 190",
-            logoUrl: "/ucsd.png",
+            logoUrl: "/cse.jpg",
             start: "Mar 2024",
             end: "Jun 2024",
             description:
@@ -83,7 +83,7 @@ export const DATA = {
             href: "https://skyitservices.com",
             location: "Remote",
             title: "Frontend React Developer Intern",
-            logoUrl: "/skyit.png",
+            logoUrl: "/skyit.jpg",
             start: "Jan 2023",
             end: "Jul 2023",
             description:
@@ -93,9 +93,7 @@ export const DATA = {
     projects: [
         {
             title: "StudyShore - DiamondHacks 3rd Place",
-            href: "https://devpost.com/software/studyshore",
-            dates: "Jan 2023",
-            active: true,
+            dates: "Mar 2024",
             description:
                 "Engineered creative Prompt Engineering with Google Cloud Platform speech-to-text and Python APIs to produce study materials like summaries, flashcards, and quizzes from uploaded text, audio, and video files. Led a team to 3rd place in DiamondHacks, leveraging Gemini API and Flask on the backend and Next.js and AntDesign for the frontend.",
             technologies: ["Next.js", "Flask", "Gemini", "GCP", "AntDesign"],
@@ -110,9 +108,7 @@ export const DATA = {
         },
         {
             title: "VersusSweeper - Multiplayer Game",
-            href: "https://versussweeper.com",
-            dates: "June 2022",
-            active: true,
+            dates: "Jun 2023 - Nov 2023",
             description:
                 "Developed a real-time, multiplayer Minesweeper game with custom lobbies and settings. Improved performance by 75% using Figma, Next.js, and React.js with dynamic links and lazy loading. Utilized Express, Socket.IO for real-time communication, and Redis for efficient data storage and updates. Coordinated effective idea communication, task allocation, and version control in an Agile environment.",
             technologies: [
