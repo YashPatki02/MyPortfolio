@@ -11,15 +11,24 @@ import Education from "./Education";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { ScrollArea, ScrollBar } from './ui/scroll-area';
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import Experience from "./Experience";
 import Project from "./Project";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import BlurFade from "./magicui/blur-fade";
 
 const Resume = () => {
     const [selected, setSelected] = useState(1);
+    const { scrollYProgress } = useScroll();
+
+    // Use the scrollYProgress to create a transform value
+    const yTransform =
+        selected === 1
+            ? useTransform(scrollYProgress, [0, 1], ["0%", "90%"])
+            : selected === 2
+            ? useTransform(scrollYProgress, [0, 1], ["0%", "80%"])
+            : useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
     return (
         <div className="flex flex-row items-start justify-center">
@@ -109,7 +118,10 @@ const Resume = () => {
             {/* Resume Content - Only on Medium+ Screens */}
             <div className="flex w-1/2 items-start justify-center z-10">
                 {selected == 1 && (
-                    <div className="mb-4 ml-4 mt-16 mr-8 border-l pl-10 border-cyan-600">
+                    <motion.div
+                        className="mb-4 ml-4 mt-16 mr-8 border-l pl-10 border-cyan-600"
+                        style={{ y: yTransform }}
+                    >
                         <div className="flex flex-row items-center justify-start gap-2">
                             <BlurFade delay={0.1}>
                                 <div>
@@ -166,10 +178,13 @@ const Resume = () => {
                                 )
                             )}
                         </div>
-                    </div>
+                    </motion.div>
                 )}
                 {selected == 2 && (
-                    <ul className="mb-4 ml-4 mt-14 mr-8 divide-y divide-dashed border-l border-sky-600">
+                    <motion.ul
+                        className="mb-4 ml-4 mt-14 mr-8 divide-y divide-dashed border-l border-sky-600"
+                        style={{ y: yTransform }}
+                    >
                         <BlurFade delay={0.1}>
                             <Education
                                 title="University of California San Diego"
@@ -232,16 +247,19 @@ const Resume = () => {
                                 ]}
                             />
                         </BlurFade>
-                    </ul>
+                    </motion.ul>
                 )}
                 {selected == 3 && (
-                    <ul className="mb-4 ml-4 mt-16 mr-8 divide-y divide-dashed border-l border-sky-600">
+                    <motion.ul
+                        className="mb-4 ml-4 mt-16 mr-8 divide-y divide-dashed border-l border-sky-600"
+                        style={{ y: yTransform }}
+                    >
                         {DATA.work.map((work, idx) => (
                             <BlurFade delay={0.1 + idx * 0.05} key={idx}>
                                 <Experience key={idx} {...work} />
                             </BlurFade>
                         ))}
-                    </ul>
+                    </motion.ul>
                 )}
                 {selected == 4 && (
                     <div className="mb-4 ml-4 mt-10 mr-8">
@@ -254,7 +272,7 @@ const Resume = () => {
                                 favorites.
                             </p>
                         </BlurFade>
-                        <ScrollArea className="h-auto max-lg:h-[550px] w-auto mt-6">
+                        <ScrollArea className="h-auto max-lg:h-[550px] w-auto mt-4">
                             <div className="mt-6 grid grid-cols-1 gap-3 lg:grid-cols-2 max-w-[800px] mx-auto">
                                 {DATA.projects.map((project, idx) => (
                                     <BlurFade
