@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -18,7 +18,12 @@ type Prop = {
 
 export function ToggleMode({ dropdown = false }: Prop) {
     const { setTheme } = useTheme();
-    let [style, setStyle] = useState(localStorage.getItem("theme") || "system");
+    let [style, setStyle] = useState("system");
+
+    useEffect(() => {
+        setStyle(localStorage.getItem("theme") || "system");
+        setTheme(localStorage.getItem("theme") || "system");
+    }, []);
 
     return (
         <>

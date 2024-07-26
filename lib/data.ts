@@ -12,18 +12,57 @@ export const DATA = {
         "Enjoy building full-stack applications from concept to completion. Passionate about creating intuitive, scalable, and accessible user experiences. Like to challenge myself, work in collaborative environments, and learn new technologies.",
     avatarUrl: "/me.jpg",
     skills: [
-        "React",
-        "Next.js",
-        "Typescript",
-        "Express.js",
-        "Python",
-        "Postgres",
-        "AWS",
-        "GCP",
-        "Java",
-        "TailwindCSS",
-        "OpenAI",
-        "Figma",
+        {
+            name: "React.js",
+            level: "Advanced",
+        },
+        {
+            name: "Next.js",
+            level: "Advanced",
+        },
+        {
+            name: "TypeScript",
+            level: "Advanced",
+        },
+        {
+            name: "TailwindCSS",
+            level: "Advanced",
+        },
+        {
+            name: "Figma",
+            level: "Advanced",
+        },
+        {
+            name: "Python",
+            level: "Intermediate",
+        },
+        {
+            name: "Flask",
+            level: "Intermediate",
+        },
+        {
+            name: "Express.js",
+            level: "Intermediate",
+        },
+
+        {
+            name: "PostgreSQL",
+            level: "Advanced",
+        },
+
+        {
+            name: "AWS",
+            level: "Intermediate",
+        },
+
+        {
+            name: "CI/CD",
+            level: "Intermediate",
+        },
+        {
+            name: "Agile",
+            level: "Intermediate",
+        },
     ],
     navbar: [
         { href: "/", icon: HomeIcon, label: "Home" },
@@ -92,44 +131,126 @@ export const DATA = {
     ],
     projects: [
         {
-            title: "StudyShore - DiamondHacks 3rd Place",
-            dates: "Mar 2024",
+            title: "Portfolio",
+            dates: "Jul 2024 - Present",
             description:
-                "Engineered creative Prompt Engineering with Google Cloud Platform speech-to-text and Python APIs to produce study materials like summaries, flashcards, and quizzes from uploaded text, audio, and video files. Led a team to 3rd place in DiamondHacks, leveraging Gemini API and Flask on the backend and Next.js and AntDesign for the frontend.",
-            technologies: ["Next.js", "Flask", "Gemini", "GCP", "AntDesign"],
+                "Inception, this is what you are looking at right now. A personal portfolio website to showcase my projects, experiences, and skills.",
+            technologies: [
+                "Next.js",
+                "React",
+                "TailwindCSS",
+                "shadcn",
+                "Framer Motion",
+                "Magic UI",
+            ],
             links: [
                 {
-                    type: "DevPost",
-                    href: "https://devpost.com/software/studyshore",
+                    name: "GitHub",
+                    url: "https://github.com/YashPatki02/MyPortfolio",
                 },
             ],
             image: "",
             video: "",
         },
         {
-            title: "VersusSweeper - Multiplayer Game",
+            title: "StudyShore",
+            dates: "Mar 2024",
+            description:
+                "Website to let students upload text, audio, or video files and get customized study tools: summaries, flashcards, and quizzes.",
+            technologies: [
+                "Next.js",
+                "Flask",
+                "Gemini",
+                "GCP",
+                "Python",
+                "AntDesign",
+                "Figma",
+            ],
+            badge: "DiamondHacks - 3rd Place",
+            links: [
+                {
+                    name: "DevPost",
+                    url: "https://devpost.com/software/studyshore",
+                },
+                {
+                    name: "GitHub",
+                    url: "https://github.com/bubloo7/StudyShore",
+                },
+            ],
+            image: "",
+            video: "",
+        },
+        {
+            title: "VersusSweeper",
             dates: "Jun 2023 - Nov 2023",
             description:
-                "Developed a real-time, multiplayer Minesweeper game with custom lobbies and settings. Improved performance by 75% using Figma, Next.js, and React.js with dynamic links and lazy loading. Utilized Express, Socket.IO for real-time communication, and Redis for efficient data storage and updates. Coordinated effective idea communication, task allocation, and version control in an Agile environment.",
+                "A multiplayer version of the classic Minesweeper game. Players can compete in real-time to clear the board faster than their opponent.",
             technologies: [
                 "React.js",
                 "Next.js",
                 "Redis",
                 "Express.js",
+                "Socket.io",
+                "AntDesign",
                 "Figma",
             ],
             links: [
                 {
-                    type: "GitHub",
-                    href: "https://github.com/bubloo7/VersusSweeper",
+                    name: "GitHub",
+                    url: "https://github.com/bubloo7/VersusSweeper",
                 },
                 {
-                    type: "WebApp",
-                    href: "https://versussweeper.com",
+                    name: "Website",
+                    url: "https://versussweeper.com",
+                },
+            ],
+            image: "",
+            video: "",
+        },
+        {
+            title: "HousingPal",
+            dates: "Sep 2023 - Dec 2023",
+            description:
+                "To combat the housing crisis, I built a platform for students to create profiles, search for roommates, and filter listings based on preferences.",
+            technologies: [
+                "React.js",
+                "PostgreSQL",
+                "Express.js",
+                "Node.js",
+                "AntDesign",
+            ],
+            links: [
+                {
+                    name: "GitHub",
+                    url: "https://github.com/YashPatki02/HousingPal-CodePath",
+                },
+                {
+                    name: "Demo",
+                    url: "https://housingpal-codepath-client.up.railway.app/",
                 },
             ],
             image: "",
             video: "",
         },
     ],
-} as const;
+    certicates: [
+        {
+            company: "Meta",
+            href: "https://www.coursera.org/account/accomplishments/professional-cert/65YL56C8VP8S",
+            title: "Meta Front-End Developer Professional Certificate",
+            logoUrl: "/meta.png",
+        },
+        {
+            company: "Meta",
+            href: "https://www.linkedin.com/in/yash-patki-b17336164/details/certifications/1703284383350/single-media-viewer/?profileId=ACoAACc0RcMBdNkQALbg_tTTk8UYHI_VEyBZic0",
+            title: "Meta React Native Certificate",
+            logoUrl: "/meta.png",
+        },
+        {
+            company: "CodePath",
+            href: "https://www.linkedin.com/in/yash-patki-b17336164/details/certifications/1703047576304/single-media-viewer/?profileId=ACoAACc0RcMBdNkQALbg_tTTk8UYHI_VEyBZic0",
+            title: "Advanced Web Development Course",
+            logoUrl: "/codepath.png",
+        },
+    ],
+};

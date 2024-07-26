@@ -13,6 +13,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import Experience from "./Experience";
 import Project from "./Project";
+import Link from "next/link";
 
 const Resume = () => {
     const [selected, setSelected] = useState(1);
@@ -61,10 +62,11 @@ const Resume = () => {
                     onClick={() => setSelected(5)}
                 />
             </div>
+
             <div className="flex w-1/2 items-start justify-center">
                 <div>
                     {selected == 1 && (
-                        <div className="mb-4 ml-4 mt-8 mr-8 border-l pl-10">
+                        <div className="mb-4 ml-4 mt-12 mr-8 border-l pl-10">
                             <div className="flex flex-row items-center justify-start gap-2">
                                 <div>
                                     <h1 className="mt-4 text-2xl font-semibold">
@@ -91,15 +93,7 @@ const Resume = () => {
                             <p className="mt-4 text-sm">{DATA.description}</p>
                             <p className="mt-4 text-sm">{DATA.summary}</p>
 
-                            <div className="mt-4 flex flex-row gap-2 flex-wrap">
-                                {DATA.skills.map((skill, idx) => (
-                                    <Badge variant="outline" key={idx}>
-                                        {skill}
-                                    </Badge>
-                                ))}
-                            </div>
-
-                            <div className="mt-4 flex flex-row gap-2 items-center ">
+                            <div className="mt-6 flex flex-row gap-2 items-center ">
                                 {Object.values(DATA.contact.social).map(
                                     (social, idx) => (
                                         <Button
@@ -191,10 +185,74 @@ const Resume = () => {
                         </ul>
                     )}
                     {selected == 4 && (
-                        <div className="mb-4 ml-4 mt-18 mr-8 border-l grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+                        <div className="mb-4 ml-4 mt-10 mr-8">
+                            <h2 className="text-xl font-semibold">
+                                My Projects
+                            </h2>
+                            <p className="text-muted-foreground">
+                                I like to build things! Here are some of my
+                                favorites.
+                            </p>
+
+                            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
                                 {DATA.projects.map((project, idx) => (
                                     <Project key={idx} {...project} />
                                 ))}
+                            </div>
+                        </div>
+                    )}
+                    {selected == 5 && (
+                        <div className="mb-4 ml-4 mt-16 mr-8">
+                            <h2 className="text-xl font-semibold">
+                                Skills & Technologies
+                            </h2>
+                            <p className="text-muted-foreground">
+                                I've worked with a variety of tools and
+                                technologies. Here are some of my favorites.
+                            </p>
+
+                            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+                                {DATA.skills.map(({ name, level }, idx) => (
+                                    <Badge key={idx} variant="outline">
+                                        <span className="mr-auto">{name}</span>
+                                        <span className="text-muted-foreground">
+                                            {level}
+                                        </span>
+                                    </Badge>
+                                ))}
+                            </div>
+                            <h2 className="mt-12 text-xl font-semibold">
+                                Certifications
+                            </h2>
+
+                            <ul className="mb-4 ml-4 mt-6 mr-8 divide-y divide-dashed border-l">
+                                {DATA.certicates.map((cert, idx) => (
+                                    <li className="relative ml-10 py-4 decoration-none">
+                                        <Link href={cert.href} target="_blank">
+                                            <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
+                                                <Avatar className="border size-12">
+                                                    <AvatarImage
+                                                        src={cert.logoUrl}
+                                                        alt={cert.company}
+                                                        className="object-contain"
+                                                    />
+                                                    <AvatarFallback>
+                                                        {cert.company[0]}
+                                                    </AvatarFallback>
+                                                </Avatar>
+                                            </div>
+                                            <div className="flex flex-1 flex-col justify-start gap-1">
+                                                <h2 className="leading-none font-semibold">
+                                                    {cert.company}
+                                                </h2>
+                                                <p className="text-muted-foreground text-sm">
+                                                    {cert.title}
+                                                </p>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     )}
                 </div>

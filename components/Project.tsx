@@ -9,7 +9,8 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import AnimatedGradientText from "./magicui/animated-gradient-text";
+import {cn} from "@/lib/utils";
 
 type ProjectProps = {
     title: string;
@@ -17,9 +18,10 @@ type ProjectProps = {
     description: string;
     image?: string;
     video?: string;
+    badge?: string;
     links: {
-        type: string;
-        href: string;
+        name: string;
+        url: string;
     }[];
     technologies: string[];
 };
@@ -30,19 +32,17 @@ const Project = ({
     description,
     image,
     video,
+    badge,
     links,
     technologies,
 }: ProjectProps) => {
     return (
         <Card
             className={
-                "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
+                "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full pl-1"
             }
         >
-            <Link
-                href={(links && links[0].href) || "#"}
-                //   className={cn("block cursor-pointer", className)}
-            >
+            <Link href={(links && links[0].url) || "#"}>
                 {video && (
                     <video
                         src={video}
@@ -64,11 +64,26 @@ const Project = ({
             <CardHeader className="px-2">
                 <div className="space-y-1">
                     <CardTitle className="mt-1 text-base">{title}</CardTitle>
-                    <time className="font-sans text-xs">{dates}</time>
+
+                    <p className="font-sans text-xs">{dates}</p>
+
                     <p className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
                         {description}
                     </p>
                 </div>
+                {badge && (
+                    <AnimatedGradientText>
+                        🎉{" "}
+                        <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
+                        <span
+                            className={cn(
+                                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-[10px]`
+                            )}
+                        >
+                            {badge}
+                        </span>
+                    </AnimatedGradientText>
+                )}
             </CardHeader>
             <CardContent className="mt-auto flex flex-col px-2">
                 {technologies && technologies.length > 0 && (
@@ -89,21 +104,14 @@ const Project = ({
                 {links && links.length > 0 && (
                     <div className="flex flex-row flex-wrap items-start gap-1">
                         {links?.map((link, idx) => (
-                            <Link href={link?.href} key={idx} target="_blank">
+                            <Link href={link?.url} key={idx} target="_blank">
                                 <Badge
                                     key={idx}
                                     className="flex gap-2 px-2 py-1 text-[10px]"
                                 >
-                                    {link.type}
+                                    {link.name}
                                 </Badge>
                             </Link>
-                            // <Button
-                            //     variant="secondary"
-                            //     key={idx}
-                            //     onClick={() => window.open(link.href, "_blank")}
-                            // >
-                            //     {link.type}
-                            // </Button>
                         ))}
                     </div>
                 )}
