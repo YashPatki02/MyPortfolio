@@ -112,7 +112,7 @@ const Resume = () => {
                             <BlurFade delay={0.1}>
                                 <div>
                                     <h1 className="mt-4 text-2xl font-semibold">
-                                        Hi, I'm {DATA.name} 👋
+                                        Hi, I{`&apos`}m {DATA.name} 👋
                                     </h1>
                                     <h2 className="text-muted-foreground">
                                         Full-Stack Developer | Frontend
@@ -142,7 +142,10 @@ const Resume = () => {
                         <div className="mt-6 flex flex-row gap-2 items-center ">
                             {Object.values(DATA.contact.social).map(
                                 (social, idx) => (
-                                    <BlurFade delay={0.25 + idx * 0.05}>
+                                    <BlurFade
+                                        delay={0.25 + idx * 0.05}
+                                        key={idx}
+                                    >
                                         <Button
                                             key={idx}
                                             variant="secondary"
@@ -270,23 +273,21 @@ const Resume = () => {
                                 Skills & Technologies
                             </h2>
                             <p className="text-muted-foreground">
-                                I've worked with a variety of tools and
+                                I{`&apos`}ve worked with a variety of tools and
                                 technologies. Here are some of my favorites.
                             </p>
                         </BlurFade>
                         <BlurFade delay={0.2}>
-                        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-                            {DATA.skills.map(({ name, level }, idx) => (
-                                        <Badge key={idx} variant="outline">
-                                            <span className="mr-auto">
-                                                {name}
-                                            </span>
-                                            <span className="text-muted-foreground">
-                                                {level}
-                                            </span>
-                                        </Badge>
-                            ))}
-                        </div>
+                            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+                                {DATA.skills.map(({ name, level }, idx) => (
+                                    <Badge key={idx} variant="outline">
+                                        <span className="mr-auto">{name}</span>
+                                        <span className="text-muted-foreground">
+                                            {level}
+                                        </span>
+                                    </Badge>
+                                ))}
+                            </div>
                         </BlurFade>
                         <BlurFade delay={0.3}>
                             <h2 className="mt-12 text-xl font-semibold">

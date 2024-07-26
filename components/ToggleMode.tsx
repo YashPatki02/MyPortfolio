@@ -23,7 +23,7 @@ export function ToggleMode({ dropdown = false }: Prop) {
     useEffect(() => {
         setStyle(localStorage.getItem("theme") || "system");
         setTheme(localStorage.getItem("theme") || "system");
-    }, []);
+    }, [setTheme]);
 
     return (
         <>
