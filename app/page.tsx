@@ -21,7 +21,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <header className="p-3">
-                <nav className="flex justify-center items-center mr-4 ml-4 pb-2 border-b">
+                <nav className="flex justify-center items-center mr-8 ml-8 pb-2 border-b">
                     <div className="text-2xl font-400 font-serif">
                         Yash Patki.
                     </div>

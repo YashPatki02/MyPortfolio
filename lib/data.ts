@@ -97,14 +97,14 @@ export const DATA = {
     work: [
         {
             company: "Headstarter AI",
-            href: "https://headstarterai.com",
+            href: "https://headstarter.co/",
             location: "Remote",
             title: "Software Engineering Fellow",
             logoUrl: "/headstarter.png",
             start: "Jul 2024",
             end: "Present",
             description:
-                "Built 5+ AI apps and APIs using tools like Next.js, OpenAI, Pinecone, StripeAPI, AWS, Firebase, and more. Led project development from design to deployment using MVC design patterns. Coached by industry-leading Software Engineers on Agile, CI/CD, entrepreneurship, and microservice patterns.",
+                "Built 5+ AI apps and APIs using tools like Next.js, OpenAI, Pinecone, StripeAPI, AWS, Firebase, and more. Attended hackathons, workshops, and networking events to learn and grow. ",
         },
         {
             company: "UCSD CSE Department",
@@ -115,18 +115,18 @@ export const DATA = {
             start: "Mar 2024",
             end: "Jun 2024",
             description:
-                "Facilitated staff meetings, tutor hours, and lectures, assisting 50 students with the open-source IdleLib codebase. Authored parts of the course textbook on utilizing GitHub Copilot and LLMs to enhance code contributions. Provided code reviews on student PRs, ensuring adherence to industry standards and project requirements.",
+                "Helped 50 students with weekly office hours, code reviews, and project feedback working on the open-source Python IdleLib repo. Authored the course textbook on GitHub Copilot and use of LLMs in code generation.",
         },
         {
             company: "SkyIT Services",
-            href: "https://skyitservices.com",
+            href: "https://skyit.services/",
             location: "Remote",
             title: "Frontend React Developer Intern",
             logoUrl: "/skyit.jpg",
             start: "Jan 2023",
             end: "Jul 2023",
             description:
-                "Developed React.js components and pages supporting CRUD operations for a Fleet Management application. Enhanced routing and user experience significantly with error feedback on forms and inputs and guided navigation, and translated Figma design prototypes using the AntDesign library. Conducted end-to-end testing and presented optimizations in daily stand-ups, increasing site reliability.",
+                "Developed reusable React components and pages for a Fleet Management application. Ensured east of use, accessibility, and responsiveness across devices. Conducted end-to-end testing and presented optimizations in daily stand-ups.",
         },
     ],
     projects: [
