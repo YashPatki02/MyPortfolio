@@ -11,6 +11,7 @@ import Education from "./Education";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
+import { ScrollArea, ScrollBar } from './ui/scroll-area';
 import Experience from "./Experience";
 import Project from "./Project";
 import Link from "next/link";
@@ -22,7 +23,8 @@ const Resume = () => {
 
     return (
         <div className="flex flex-row items-start justify-center">
-            <div className="flex flex-col w-1/2 items-center justify-center m-10 z-10 max-sm:hidden">
+            {/* Resume */}
+            <div className="flex flex-col w-1/2 items-center justify-center m-10 z-10">
                 <BlurFade delay={0.1 + selected * 0.15}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
@@ -104,7 +106,7 @@ const Resume = () => {
                     </motion.div>
                 </BlurFade>
             </div>
-
+            {/* Resume Content - Only on Medium+ Screens */}
             <div className="flex w-1/2 items-start justify-center z-10">
                 {selected == 1 && (
                     <div className="mb-4 ml-4 mt-16 mr-8 border-l pl-10 border-cyan-600">
@@ -252,18 +254,19 @@ const Resume = () => {
                                 favorites.
                             </p>
                         </BlurFade>
-
-                        <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-                            {DATA.projects.map((project, idx) => (
-                                <BlurFade
-                                    delay={0.15 + idx * 0.05}
-                                    key={idx}
-                                    inView
-                                >
-                                    <Project key={idx} {...project} />
-                                </BlurFade>
-                            ))}
-                        </div>
+                        <ScrollArea className="h-[400px] w-auto">
+                            <div className="mt-6 grid grid-cols-1 gap-3 lg:grid-cols-2 max-w-[800px] mx-auto">
+                                {DATA.projects.map((project, idx) => (
+                                    <BlurFade
+                                        delay={0.15 + idx * 0.05}
+                                        key={idx}
+                                    >
+                                        <Project key={idx} {...project} />
+                                    </BlurFade>
+                                ))}
+                            </div>
+                            <ScrollBar orientation="vertical" />
+                        </ScrollArea>
                     </div>
                 )}
                 {selected == 5 && (

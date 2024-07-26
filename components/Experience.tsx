@@ -43,8 +43,8 @@ const Experience = ({
                     </Avatar>
                 </Link>
             </div>
-            <div className="flex flex-1 flex-col justify-start gap-1">
-                <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-1 flex-col justify-start gap-1 ">
+                <div className="flex items-center justify-between gap-2 max-lg:flex-col max-lg:items-start">
                     <div>
                         <h2 className="font-semibold leading-none">
                             {company}
@@ -57,7 +57,7 @@ const Experience = ({
                     </div>
                     <div>
                         {start && end && location && (
-                            <time className="text-xs text-muted-foreground">
+                            <time className="text-xs text-muted-foreground leading-none max-lg:mb-4">
                                 {start} - {end} &bull; {location}
                             </time>
                         )}

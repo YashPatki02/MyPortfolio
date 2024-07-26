@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { ToggleMode } from "@/components/ToggleMode";
 import Resume from "@/components/Resume";
+import ResumeMobile from "@/components/ResumeMobile"
 import ResumeButton from "@/components/ResumeButton";
 import AnimatedGridPattern from "../components/magicui/animated-grid-pattern";
 import {cn} from "@/lib/utils";
@@ -37,8 +38,13 @@ export default function Home() {
                     </ul>
                 </nav>
             </header>
+            <div className="max-md:hidden"> 
+                <Resume />
+            </div>
+            <div className="md:hidden">
+                <ResumeMobile />
+                </div>
 
-            <Resume />
             <AnimatedGridPattern
                 numSquares={300}
                 maxOpacity={0.05}
