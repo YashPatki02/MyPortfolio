@@ -254,7 +254,7 @@ const Resume = () => {
                                 favorites.
                             </p>
                         </BlurFade>
-                        <ScrollArea className="h-[400px] w-auto">
+                        <ScrollArea className="h-auto max-lg:h-[550px] w-auto mt-6">
                             <div className="mt-6 grid grid-cols-1 gap-3 lg:grid-cols-2 max-w-[800px] mx-auto">
                                 {DATA.projects.map((project, idx) => (
                                     <BlurFade
