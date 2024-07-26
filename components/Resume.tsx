@@ -112,7 +112,7 @@ const Resume = () => {
                             <BlurFade delay={0.1}>
                                 <div>
                                     <h1 className="mt-4 text-2xl font-semibold">
-                                        Hi, I{`&apos`}m {DATA.name} 👋
+                                        Hi, I&apos;m {DATA.name} 👋
                                     </h1>
                                     <h2 className="text-muted-foreground">
                                         Full-Stack Developer | Frontend
@@ -273,7 +273,7 @@ const Resume = () => {
                                 Skills & Technologies
                             </h2>
                             <p className="text-muted-foreground">
-                                I{`&apos`}ve worked with a variety of tools and
+                                I&apos;ve worked with a variety of tools and
                                 technologies. Here are some of my favorites.
                             </p>
                         </BlurFade>
