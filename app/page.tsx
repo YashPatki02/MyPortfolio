@@ -2,6 +2,8 @@ import Head from "next/head";
 import { ToggleMode } from "@/components/ToggleMode";
 import Resume from "@/components/Resume";
 import ResumeButton from "@/components/ResumeButton";
+import AnimatedGridPattern from "../components/magicui/animated-grid-pattern";
+import {cn} from "@/lib/utils";
 
 export default function Home() {
     return (
@@ -20,7 +22,9 @@ export default function Home() {
             </Head>
             <header className="p-3">
                 <nav className="flex justify-center items-center mr-4 ml-4 pb-2 border-b">
-                    <div className="text-2xl font-400 font-serif">Yash Patki.</div>
+                    <div className="text-2xl font-400 font-serif">
+                        Yash Patki.
+                    </div>
 
                     <div className="flex-grow" />
                     <ul className="flex space-x-4">
@@ -35,6 +39,16 @@ export default function Home() {
             </header>
 
             <Resume />
+            <AnimatedGridPattern
+                numSquares={300}
+                maxOpacity={0.05}
+                duration={3}
+                repeatDelay={1}
+                className={cn(
+                    "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+                    "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
+                )}
+            />
         </div>
     );
 }
