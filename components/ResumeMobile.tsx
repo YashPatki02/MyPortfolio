@@ -16,7 +16,7 @@ const ResumeMobile = () => {
     return (
         <div className="flex flex-col items-start justify-center">
             <div className="flex flex-col items-start justify-center z-10 m-10">
-                <div className="mb-4 ml-4 mt-16 mr-8 border-l pl-10 border-cyan-600">
+                <div className="mb-4 ml-4 mt-16 mr-8">
                     <div className="flex flex-row items-center justify-start gap-2">
                         <BlurFade delay={0.1}>
                             <div>
@@ -152,7 +152,6 @@ const ResumeMobile = () => {
                             <BlurFade
                                 key={idx}
                                 delay={0.15 + idx * 0.05}
-                                inView
                             >
                                 <Project {...project} />
                             </BlurFade>
