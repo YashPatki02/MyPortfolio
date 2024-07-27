@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={roboto.className}>
                 <Analytics />
+                <SpeedInsights />
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
