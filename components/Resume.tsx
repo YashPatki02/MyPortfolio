@@ -22,13 +22,22 @@ const Resume = () => {
     const [selected, setSelected] = useState(1);
     const { scrollYProgress } = useScroll();
 
+    // Define an array of transform values
+    const transformValues = [
+        "0%", // Default
+        "90%", // selected == 1
+        "80%", // selected == 2
+        "50%", // selected == 3
+        "0%", // selected == 4
+        "0%", // selected == 5
+    ];
+
     // Use the scrollYProgress to create a transform value
-    const yTransform =
-        selected === 1
-            ? useTransform(scrollYProgress, [0, 1], ["0%", "90%"])
-            : selected === 2
-            ? useTransform(scrollYProgress, [0, 1], ["0%", "80%"])
-            : useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+    const yTransform = useTransform(
+        scrollYProgress,
+        [0, 1],
+        ["0%", transformValues[selected] || "0%"]
+    );
 
     return (
         <div className="flex flex-row items-start justify-center">
