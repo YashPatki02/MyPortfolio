@@ -18,7 +18,7 @@ const ResumeMobile = () => {
             <div className="flex flex-col items-start justify-center z-10 m-10">
                 <div className="mb-4 ml-4 mt-16 mr-8">
                     <div className="flex flex-row items-center justify-start gap-2">
-                        <BlurFade delay={0.1}>
+                        <BlurFade>
                             <div>
                                 <h1 className="mt-4 text-2xl font-semibold">
                                     Hi, I&apos;m {DATA.name} 👋
@@ -28,7 +28,7 @@ const ResumeMobile = () => {
                                 </h2>
                             </div>
                         </BlurFade>
-                        <BlurFade delay={0.15}>
+                        <BlurFade delay={0.1}>
                             <Avatar className="border size-20">
                                 <AvatarImage
                                     src={DATA.avatarUrl}
@@ -66,7 +66,7 @@ const ResumeMobile = () => {
                 </div>
 
                 <ul className="mb-4 ml-4 mt-14 mr-8 divide-y divide-dashed border-l border-sky-600">
-                    <BlurFade delay={0.1}>
+                    <BlurFade delay={0.3}>
                         <Education
                             title="University of California San Diego"
                             degree="B.S. Computer Science-Mathematics, Minor in Business"
@@ -99,7 +99,7 @@ const ResumeMobile = () => {
                             ]}
                         />
                     </BlurFade>
-                    <BlurFade delay={0.2}>
+                    <BlurFade delay={0.4}>
                         <Education
                             title="Thousand Oaks High School"
                             degree="High School Diploma"
@@ -132,14 +132,14 @@ const ResumeMobile = () => {
 
                 <ul className="mb-4 ml-4 mt-16 mr-8 divide-y divide-dashed border-l border-sky-600">
                     {DATA.work.map((work, idx) => (
-                        <BlurFade key={idx} delay={0.1 + idx * 0.05}>
+                        <BlurFade key={idx} delay={0.4 + idx * 0.05}>
                             <Experience {...work} />
                         </BlurFade>
                     ))}
                 </ul>
 
                 <div className="mb-4 ml-4 mt-10 mr-8">
-                    <BlurFade delay={0.1}>
+                    <BlurFade delay={0.5}>
                         <h2 className="text-xl font-semibold">My Projects</h2>
                         <p className="text-muted-foreground">
                             I like to build things! Here are some of my
@@ -151,7 +151,7 @@ const ResumeMobile = () => {
                         {DATA.projects.map((project, idx) => (
                             <BlurFade
                                 key={idx}
-                                delay={0.15 + idx * 0.05}
+                                delay={0.5 + idx * 0.05}
                             >
                                 <Project {...project} />
                             </BlurFade>
@@ -160,7 +160,7 @@ const ResumeMobile = () => {
                 </div>
 
                 <div className="mb-4 ml-4 mt-16 mr-8">
-                    <BlurFade delay={0.1}>
+                    <BlurFade delay={0.5}>
                         <h2 className="text-xl font-semibold">
                             Skills & Technologies
                         </h2>
@@ -169,7 +169,7 @@ const ResumeMobile = () => {
                             technologies. Here are some of my favorites.
                         </p>
                     </BlurFade>
-                    <BlurFade delay={0.2}>
+                    <BlurFade delay={0.5}>
                         <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
                             {DATA.skills.map(({ name, level }, idx) => (
                                 <Badge key={idx} variant="outline">
@@ -181,7 +181,7 @@ const ResumeMobile = () => {
                             ))}
                         </div>
                     </BlurFade>
-                    <BlurFade delay={0.3}>
+                    <BlurFade delay={0.6}>
                         <h2 className="mt-12 text-xl font-semibold">
                             Certifications
                         </h2>
@@ -189,7 +189,7 @@ const ResumeMobile = () => {
 
                     <ul className="mb-4 ml-4 mt-6 mr-8 divide-y divide-dashed border-l border-sky-600">
                         {DATA.certicates.map((cert, idx) => (
-                            <BlurFade key={idx} delay={0.3 + idx * 0.05}>
+                            <BlurFade key={idx} delay={0.6 + idx * 0.05}>
                                 <li className="relative ml-10 py-4 decoration-none">
                                     <Link href={cert.href} target="_blank">
                                         <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">

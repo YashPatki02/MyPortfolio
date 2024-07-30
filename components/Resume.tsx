@@ -43,7 +43,7 @@ const Resume = () => {
         <div className="flex flex-row items-start justify-center">
             {/* Resume */}
             <div className="flex flex-col w-1/2 items-center justify-center m-10 z-10">
-                <BlurFade delay={0.1 + selected * 0.15}>
+                <BlurFade delay={selected * 0.15}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -59,7 +59,7 @@ const Resume = () => {
                         />
                     </motion.div>
                 </BlurFade>
-                <BlurFade delay={0.1 + selected * 0.15}>
+                <BlurFade delay={selected * 0.15}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -75,7 +75,7 @@ const Resume = () => {
                         />
                     </motion.div>
                 </BlurFade>
-                <BlurFade delay={0.1 + selected * 0.15}>
+                <BlurFade delay={selected * 0.15}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -91,7 +91,7 @@ const Resume = () => {
                         />
                     </motion.div>
                 </BlurFade>
-                <BlurFade delay={0.1 + selected * 0.15}>
+                <BlurFade delay={selected * 0.15}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -107,7 +107,7 @@ const Resume = () => {
                         />
                     </motion.div>
                 </BlurFade>
-                <BlurFade delay={0.1 + selected * 0.15}>
+                <BlurFade delay={selected * 0.15}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -285,7 +285,7 @@ const Resume = () => {
                             <div className="mt-6 grid grid-cols-1 gap-3 lg:grid-cols-2 max-w-[800px] mx-auto">
                                 {DATA.projects.map((project, idx) => (
                                     <BlurFade
-                                        delay={0.15 + idx * 0.05}
+                                        delay={0.1 + idx * 0.05}
                                         key={idx}
                                     >
                                         <Project key={idx} {...project} />
