@@ -64,13 +64,17 @@ const Education = ({
                 )}
             </div>
             {clubs && clubs.length > 0 && (
-                <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
+                <div className="mt-2 flex flex-row flex-wrap items-start gap-2 hover:cursor-pointer">
                     {clubs?.map((club, idx) => (
                         <HoverCard key={idx}>
                             <HoverCardTrigger>
                                 <Badge>{club.title}</Badge>
                             </HoverCardTrigger>
-                            <HoverCardContent className="w-120">
+                            <HoverCardContent
+                                align="center"
+                                side="top"
+                                className="w-100 "
+                            >
                                 <div className="flex justify-start space-x-4">
                                     <Avatar>
                                         <AvatarImage

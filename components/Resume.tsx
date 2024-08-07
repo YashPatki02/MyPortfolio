@@ -25,8 +25,8 @@ const Resume = () => {
     // Define an array of transform values
     const transformValues = [
         "0%", // Default
-        "90%", // selected == 1
-        "80%", // selected == 2
+        "80%", // selected == 1
+        "70%", // selected == 2
         "50%", // selected == 3
         "0%", // selected == 4
         "0%", // selected == 5
@@ -43,7 +43,7 @@ const Resume = () => {
         <div className="flex flex-row items-start justify-center">
             {/* Resume */}
             <div className="flex flex-col w-1/2 items-center justify-center m-10 z-10">
-                <BlurFade delay={selected * 0.15}>
+                <BlurFade delay={0}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -59,14 +59,14 @@ const Resume = () => {
                         />
                     </motion.div>
                 </BlurFade>
-                <BlurFade delay={selected * 0.15}>
+                <BlurFade delay={selected * 0.05}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
                         animate={{ scale: selected === 2 ? 1.02 : 1 }}
                     >
                         <Image
-                            className={`border rounded-sm ${
+                            className={`border  rounded-sm ${
                                 selected === 2 && "border-cyan-600 z-100"
                             }`}
                             src={Resume2}
@@ -75,7 +75,7 @@ const Resume = () => {
                         />
                     </motion.div>
                 </BlurFade>
-                <BlurFade delay={selected * 0.15}>
+                <BlurFade delay={selected * 0.05}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -88,10 +88,11 @@ const Resume = () => {
                             src={Resume3}
                             alt="Resume Experiences"
                             onClick={() => setSelected(3)}
+                            priority={true}
                         />
                     </motion.div>
                 </BlurFade>
-                <BlurFade delay={selected * 0.15}>
+                <BlurFade delay={selected * 0.05}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -107,7 +108,7 @@ const Resume = () => {
                         />
                     </motion.div>
                 </BlurFade>
-                <BlurFade delay={selected * 0.15}>
+                <BlurFade delay={selected * 0.05}>
                     <motion.div
                         whileHover={{ scale: 1.02 }}
                         initial={{ scale: 1 }}
@@ -131,8 +132,8 @@ const Resume = () => {
                         className="mb-4 ml-4 mt-16 mr-8 border-l pl-10 border-cyan-600"
                         style={{ y: yTransform }}
                     >
-                        <div className="flex flex-row items-center justify-start gap-2">
-                            <BlurFade delay={0.1}>
+                        <div className="flex flex-row items-center justify-start gap-8">
+                            <BlurFade delay={0}>
                                 <div>
                                     <h1 className="mt-4 text-2xl font-semibold">
                                         Hi, I&apos;m {DATA.name} 👋
@@ -143,7 +144,7 @@ const Resume = () => {
                                     </h2>
                                 </div>
                             </BlurFade>
-                            <BlurFade delay={0.15}>
+                            <BlurFade delay={0.05}>
                                 <Avatar className="border size-20">
                                     <AvatarImage
                                         src={DATA.avatarUrl}
@@ -157,7 +158,7 @@ const Resume = () => {
                             </BlurFade>
                         </div>
 
-                        <BlurFade delay={0.2}>
+                        <BlurFade delay={0.1}>
                             <p className="mt-4 text-sm">{DATA.description}</p>
                             <p className="mt-4 text-sm">{DATA.summary}</p>
                         </BlurFade>
@@ -166,7 +167,7 @@ const Resume = () => {
                             {Object.values(DATA.contact.social).map(
                                 (social, idx) => (
                                     <BlurFade
-                                        delay={0.25 + idx * 0.05}
+                                        delay={0.1 + idx * 0.05}
                                         key={idx}
                                     >
                                         <Button
@@ -194,7 +195,7 @@ const Resume = () => {
                         className="mb-4 ml-4 mt-14 mr-8 divide-y divide-dashed border-l border-sky-600"
                         style={{ y: yTransform }}
                     >
-                        <BlurFade delay={0.1}>
+                        <BlurFade delay={0.05}>
                             <Education
                                 title="University of California San Diego"
                                 degree="B.S. Computer Science-Mathematics, Minor in Business"
@@ -227,7 +228,7 @@ const Resume = () => {
                                 ]}
                             />
                         </BlurFade>
-                        <BlurFade delay={0.2}>
+                        <BlurFade delay={0.1}>
                             <Education
                                 title="Thousand Oaks High School"
                                 degree="High School Diploma"
@@ -264,7 +265,7 @@ const Resume = () => {
                         style={{ y: yTransform }}
                     >
                         {DATA.work.map((work, idx) => (
-                            <BlurFade delay={0.1 + idx * 0.05} key={idx}>
+                            <BlurFade delay={idx * 0.05} key={idx}>
                                 <Experience key={idx} {...work} />
                             </BlurFade>
                         ))}
@@ -272,7 +273,7 @@ const Resume = () => {
                 )}
                 {selected == 4 && (
                     <div className="mb-4 ml-4 mt-10 mr-8">
-                        <BlurFade delay={0.1}>
+                        <BlurFade delay={0.05}>
                             <h2 className="text-xl font-semibold">
                                 My Projects
                             </h2>
@@ -283,14 +284,16 @@ const Resume = () => {
                         </BlurFade>
                         <ScrollArea className="h-auto max-lg:h-[550px] w-auto mt-4">
                             <div className="mt-6 grid grid-cols-1 gap-3 lg:grid-cols-2 max-w-[800px] mx-auto">
-                                {DATA.projects.map((project, idx) => (
-                                    <BlurFade
-                                        delay={0.1 + idx * 0.05}
-                                        key={idx}
-                                    >
-                                        <Project key={idx} {...project} />
-                                    </BlurFade>
-                                ))}
+                                {DATA.projects.map(
+                                    (project: any, idx: number) => (
+                                        <BlurFade
+                                            delay={0.1 + idx * 0.05}
+                                            key={idx}
+                                        >
+                                            <Project key={idx} {...project} />
+                                        </BlurFade>
+                                    )
+                                )}
                             </div>
                             <ScrollBar orientation="vertical" />
                         </ScrollArea>
@@ -298,7 +301,7 @@ const Resume = () => {
                 )}
                 {selected == 5 && (
                     <div className="mb-4 ml-4 mt-16 mr-8">
-                        <BlurFade delay={0.1}>
+                        <BlurFade delay={0.05}>
                             <h2 className="text-xl font-semibold">
                                 Skills & Technologies
                             </h2>
@@ -307,7 +310,7 @@ const Resume = () => {
                                 technologies. Here are some of my favorites.
                             </p>
                         </BlurFade>
-                        <BlurFade delay={0.2}>
+                        <BlurFade delay={0.1}>
                             <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
                                 {DATA.skills.map(({ name, level }, idx) => (
                                     <Badge key={idx} variant="outline">
@@ -319,7 +322,7 @@ const Resume = () => {
                                 ))}
                             </div>
                         </BlurFade>
-                        <BlurFade delay={0.3}>
+                        <BlurFade delay={0.15}>
                             <h2 className="mt-12 text-xl font-semibold">
                                 Certifications
                             </h2>
@@ -327,7 +330,7 @@ const Resume = () => {
 
                         <ul className="mb-4 ml-4 mt-6 mr-8 divide-y divide-dashed border-l border-sky-600">
                             {DATA.certicates.map((cert, idx) => (
-                                <BlurFade delay={0.3 + idx * 0.05} key={idx}>
+                                <BlurFade delay={0.1 + idx * 0.05} key={idx}>
                                     <li className="relative ml-10 py-4 decoration-none">
                                         <Link href={cert.href} target="_blank">
                                             <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">

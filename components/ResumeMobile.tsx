@@ -17,7 +17,7 @@ const ResumeMobile = () => {
         <div className="flex flex-col items-start justify-center">
             <div className="flex flex-col items-start justify-center z-10 m-10">
                 <div className="mb-4 ml-4 mt-16 mr-8">
-                    <div className="flex flex-row items-center justify-start gap-2">
+                    <div className="flex flex-row items-center justify-start gap-6">
                         <BlurFade>
                             <div>
                                 <h1 className="mt-4 text-2xl font-semibold">
@@ -28,7 +28,7 @@ const ResumeMobile = () => {
                                 </h2>
                             </div>
                         </BlurFade>
-                        <BlurFade delay={0.1}>
+                        <BlurFade delay={0}>
                             <Avatar className="border size-20">
                                 <AvatarImage
                                     src={DATA.avatarUrl}
@@ -40,7 +40,7 @@ const ResumeMobile = () => {
                         </BlurFade>
                     </div>
 
-                    <BlurFade delay={0.2}>
+                    <BlurFade delay={0.05}>
                         <p className="mt-4 text-sm">{DATA.description}</p>
                         <p className="mt-4 text-sm">{DATA.summary}</p>
                     </BlurFade>
@@ -48,7 +48,7 @@ const ResumeMobile = () => {
                     <div className="mt-6 flex flex-row gap-2 items-center">
                         {Object.values(DATA.contact.social).map(
                             (social, idx) => (
-                                <BlurFade key={idx} delay={0.25 + idx * 0.05}>
+                                <BlurFade key={idx} delay={0.05 + idx * 0.05}>
                                     <Button
                                         variant="secondary"
                                         className="flex items-center"
@@ -66,7 +66,7 @@ const ResumeMobile = () => {
                 </div>
 
                 <ul className="mb-4 ml-4 mt-14 mr-8 divide-y divide-dashed border-l border-sky-600">
-                    <BlurFade delay={0.3}>
+                    <BlurFade delay={0.1}>
                         <Education
                             title="University of California San Diego"
                             degree="B.S. Computer Science-Mathematics, Minor in Business"
@@ -99,7 +99,7 @@ const ResumeMobile = () => {
                             ]}
                         />
                     </BlurFade>
-                    <BlurFade delay={0.4}>
+                    <BlurFade delay={0.15}>
                         <Education
                             title="Thousand Oaks High School"
                             degree="High School Diploma"
@@ -132,14 +132,14 @@ const ResumeMobile = () => {
 
                 <ul className="mb-4 ml-4 mt-16 mr-8 divide-y divide-dashed border-l border-sky-600">
                     {DATA.work.map((work, idx) => (
-                        <BlurFade key={idx} delay={0.4 + idx * 0.05}>
+                        <BlurFade key={idx} delay={0.2 + idx * 0.05}>
                             <Experience {...work} />
                         </BlurFade>
                     ))}
                 </ul>
 
                 <div className="mb-4 ml-4 mt-10 mr-8">
-                    <BlurFade delay={0.5}>
+                    <BlurFade delay={0.3}>
                         <h2 className="text-xl font-semibold">My Projects</h2>
                         <p className="text-muted-foreground">
                             I like to build things! Here are some of my
@@ -151,7 +151,7 @@ const ResumeMobile = () => {
                         {DATA.projects.map((project, idx) => (
                             <BlurFade
                                 key={idx}
-                                delay={0.5 + idx * 0.05}
+                                delay={0.3 + idx * 0.05}
                             >
                                 <Project {...project} />
                             </BlurFade>
@@ -160,7 +160,7 @@ const ResumeMobile = () => {
                 </div>
 
                 <div className="mb-4 ml-4 mt-16 mr-8">
-                    <BlurFade delay={0.5}>
+                    <BlurFade delay={0.4}>
                         <h2 className="text-xl font-semibold">
                             Skills & Technologies
                         </h2>
