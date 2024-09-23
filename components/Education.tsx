@@ -68,7 +68,7 @@ const Education = ({
                     {clubs?.map((club, idx) => (
                         <HoverCard key={idx}>
                             <HoverCardTrigger>
-                                <Badge>{club.title}</Badge>
+                                <Badge className="line-clamp-1">{club.title}</Badge>
                             </HoverCardTrigger>
                             <HoverCardContent
                                 align="center"

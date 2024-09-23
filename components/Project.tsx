@@ -8,9 +8,11 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import AnimatedGradientText from "./magicui/animated-gradient-text";
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
+import { MoveUpRight, SquareArrowOutUpRight } from "lucide-react";
 
 type ProjectProps = {
     title: string;
@@ -24,6 +26,7 @@ type ProjectProps = {
         url: string;
     }[];
     technologies: string[];
+    featured?: boolean;
 };
 
 const Project = ({
@@ -35,11 +38,12 @@ const Project = ({
     badge,
     links,
     technologies,
+    featured,
 }: ProjectProps) => {
     return (
         <Card
             className={
-                "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full pl-1"
+                "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full px-2"
             }
         >
             <Link href={(links && links[0].url) || "#"}>
@@ -57,17 +61,19 @@ const Project = ({
                     <Image
                         src={image}
                         alt={title}
+                        width={800}
+                        height={400}
                         className="h-40 w-full overflow-hidden object-cover object-top"
                     />
                 )}
             </Link>
             <CardHeader className="px-2">
-                <div className="space-y-1">
+                <div className="flex flex-col">
                     <CardTitle className="mt-1 text-base">{title}</CardTitle>
 
-                    <p className="font-sans text-xs">{dates}</p>
+                    <p className="font-sans text-xs mb-2">{dates}</p>
 
-                    <p className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
+                    <p className="prose mb-2 max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
                         {description}
                     </p>
                 </div>
@@ -75,7 +81,7 @@ const Project = ({
                     <AnimatedGradientText>
                         <span
                             className={cn(
-                                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-[10px]`
+                                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-[10px] font-semibold`
                             )}
                         >
                             {badge}
@@ -103,12 +109,14 @@ const Project = ({
                     <div className="flex flex-row flex-wrap items-start gap-1">
                         {links?.map((link, idx) => (
                             <Link href={link?.url} key={idx} target="_blank">
-                                <Badge
+                                <Button
+                                    variant="outline"
                                     key={idx}
-                                    className="flex gap-2 px-2 py-1 text-[10px]"
+                                    className="flex gap-2 px-2 py-1 text-xs"
                                 >
                                     {link.name}
-                                </Badge>
+                                    <MoveUpRight size={12} className="ml-1" />
+                                </Button>
                             </Link>
                         ))}
                     </div>

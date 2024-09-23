@@ -32,7 +32,7 @@ const Experience = ({
     return (
         <li className="relative ml-10 py-4 decoration-none">
             <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
-                <Link href={href}>
+                <Link href={href} target="_blank">
                     <Avatar className="border size-12 m-auto">
                         <AvatarImage
                             src={logoUrl}

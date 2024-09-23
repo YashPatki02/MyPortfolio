@@ -17,6 +17,7 @@ import Project from "./Project";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import BlurFade from "./magicui/blur-fade";
+import { ChevronRight } from "lucide-react";
 
 const Resume = () => {
     const [selected, setSelected] = useState(1);
@@ -27,7 +28,7 @@ const Resume = () => {
         "0%", // Default
         "80%", // selected == 1
         "70%", // selected == 2
-        "50%", // selected == 3
+        "20%", // selected == 3
         "0%", // selected == 4
         "0%", // selected == 5
     ];
@@ -282,18 +283,25 @@ const Resume = () => {
                                 favorites.
                             </p>
                         </BlurFade>
-                        <ScrollArea className="h-auto max-lg:h-[550px] w-auto mt-4">
-                            <div className="mt-6 grid grid-cols-1 gap-3 lg:grid-cols-2 max-w-[800px] mx-auto">
-                                {DATA.projects.map(
-                                    (project: any, idx: number) => (
+                        <Link
+                            href="/projects"
+                            className="text-muted-foreground text-xs flex flex-row items-center justify-end mt-2"
+                        >
+                            View All Projects
+                            <ChevronRight className="w-4 h-4 ml-2" />
+                        </Link>
+                        <ScrollArea className="h-auto max-lg:h-[550px] w-auto mt-2">
+                            <div className="mt-2 grid grid-cols-1 gap-3 lg:grid-cols-2 max-w-[800px] mx-auto">
+                                {DATA.projects
+                                    .filter((project) => project.featured)
+                                    .map((project: any, idx: number) => (
                                         <BlurFade
                                             delay={0.1 + idx * 0.05}
                                             key={idx}
                                         >
                                             <Project key={idx} {...project} />
                                         </BlurFade>
-                                    )
-                                )}
+                                    ))}
                             </div>
                             <ScrollBar orientation="vertical" />
                         </ScrollArea>
