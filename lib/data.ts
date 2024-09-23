@@ -222,7 +222,7 @@ export const DATA = {
             title: "CardGenAI",
             dates: "Aug 2024",
             description:
-                "Flashcard Generator from text, AI prompt, or files using OpenAI, Firebase for authentication and database, and Stripe API for payments integration.",
+                "Flashcard tool to create flashcards manually, from AI prompts, or files. Stripe API integration for premium features.",
             technologies: [
                 "Next.js",
                 "Firebase (Auth and Firestore)",
@@ -248,8 +248,13 @@ export const DATA = {
             title: "SweatAI",
             dates: "Aug 2024",
             description:
-                "Fitness Assistant featuring real-time chats with three personalized bots, powered by OpenAI API and Supabase for authentication and database management.",
-            technologies: ["Next.js", "TailwindCSS", "OpenAI API", "Supabase (Auth and DB)"],
+                "Fitness assistant featuring chats with three personalized bots (sports, fitness, nutrition). Real-time chats with streaming and memory.",
+            technologies: [
+                "Next.js",
+                "TailwindCSS",
+                "OpenAI API",
+                "Supabase (Auth and DB)",
+            ],
             links: [
                 {
                     name: "GitHub",
@@ -268,7 +273,7 @@ export const DATA = {
             title: "PantryPal",
             dates: "Jul 2024",
             description:
-                "Pantry and Shopping management app using Gemini API for recipe generation and shopping suggestions, and Firebase for authentication and database management.",
+                "Pantry and shopping management application to track inventory, get personalized recipes, and shopping suggestions for healthier alternatives.",
             technologies: [
                 "Next.js",
                 "Firebase (Auth and Firestore)",

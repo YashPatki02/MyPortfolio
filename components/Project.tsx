@@ -81,7 +81,7 @@ const Project = ({
                     <AnimatedGradientText>
                         <span
                             className={cn(
-                                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent text-[10px] font-semibold`
+                                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent line-clamp-1 text-[10px] font-semibold`
                             )}
                         >
                             {badge}

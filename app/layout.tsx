@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Roboto } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import ResumeButton from "@/components/ResumeButton";
+import { ToggleMode } from "@/components/ToggleMode";
+import Link from "next/link";
 
-const roboto = Roboto({ weight: "400", subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
     title: "Yash Patki | Portfolio",
@@ -47,7 +50,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={roboto.className}>
+            <body className={poppins.className}>
                 <Analytics />
                 <SpeedInsights />
                 <ThemeProvider
@@ -56,7 +59,30 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
+                    <header className="p-3">
+                        <nav className="flex flex-row justify-between items-center mx-4 sm:mx-8 pb-2 border-b">
+                            <Link href="/">
+                                <div className="text-2xl font-400 font-serif">
+                                    Yash Patki.
+                                </div>
+                            </Link>
+
+                            <ul className="flex flex-row gap-2">
+                                <li>
+                                    <ResumeButton />
+                                </li>
+                                <li>
+                                    <ToggleMode />
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
                     {children}
+                    <footer className="pt-3">
+                        <div className="mt-4 mb-4 text-center w-full text-sm text-muted-foreground">
+                            &copy; 2021 Yash Patki. All rights reserved.
+                        </div>
+                    </footer>
                 </ThemeProvider>
             </body>
         </html>

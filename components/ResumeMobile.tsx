@@ -9,14 +9,14 @@ import { Button } from "./ui/button";
 import Experience from "./Experience";
 import Project from "./Project";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import BlurFade from "./magicui/blur-fade";
+import { ChevronRight } from "lucide-react";
 
 const ResumeMobile = () => {
     return (
         <div className="flex flex-col items-start justify-center">
             <div className="flex flex-col items-start justify-center z-10 m-10">
-                <div className="mb-4 ml-4 mt-16 mr-8">
+                <div className="mb-4 ml-4 mt-8 mr-6">
                     <div className="flex flex-row items-center justify-start gap-6">
                         <BlurFade>
                             <div>
@@ -146,16 +146,22 @@ const ResumeMobile = () => {
                             favorites.
                         </p>
                     </BlurFade>
+                    <Link
+                        href="/projects"
+                        className="text-muted-foreground text-xs flex flex-row items-center justify-end mt-2"
+                    >
+                        View All Projects
+                        <ChevronRight className="w-4 h-4 ml-2" />
+                    </Link>
 
                     <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-                        {DATA.projects.map((project, idx) => (
-                            <BlurFade
-                                key={idx}
-                                delay={0.3 + idx * 0.05}
-                            >
-                                <Project {...project} />
-                            </BlurFade>
-                        ))}
+                        {DATA.projects
+                            .filter((project) => project.featured)
+                            .map((project: any, idx: number) => (
+                                <BlurFade delay={0.1 + idx * 0.05} key={idx}>
+                                    <Project key={idx} {...project} />
+                                </BlurFade>
+                            ))}
                     </div>
                 </div>
 
