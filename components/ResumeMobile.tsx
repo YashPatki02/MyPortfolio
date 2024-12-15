@@ -18,17 +18,14 @@ const ResumeMobile = () => {
             <div className="flex flex-col items-start justify-center z-10 m-10">
                 <div className="mb-4 ml-4 mt-8 mr-6">
                     <div className="flex flex-row items-center justify-start gap-6">
-                        <BlurFade>
                             <div>
                                 <h1 className="mt-4 text-2xl font-semibold">
                                     Hi, I&apos;m {DATA.name} 👋
                                 </h1>
                                 <h2 className="text-muted-foreground">
-                                    Full-Stack Developer | Frontend Developer
+                                    {DATA.position}
                                 </h2>
                             </div>
-                        </BlurFade>
-                        <BlurFade delay={0}>
                             <Avatar className="border size-20">
                                 <AvatarImage
                                     src={DATA.avatarUrl}
@@ -37,7 +34,6 @@ const ResumeMobile = () => {
                                 />
                                 <AvatarFallback>{DATA.initials}</AvatarFallback>
                             </Avatar>
-                        </BlurFade>
                     </div>
 
                     <BlurFade delay={0.05}>

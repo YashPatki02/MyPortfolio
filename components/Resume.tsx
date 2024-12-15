@@ -140,8 +140,7 @@ const Resume = () => {
                                         Hi, I&apos;m {DATA.name} 👋
                                     </h1>
                                     <h2 className="text-muted-foreground">
-                                        Full-Stack Developer | Frontend
-                                        Developer
+                                        {DATA.position}
                                     </h2>
                                 </div>
                             </BlurFade>

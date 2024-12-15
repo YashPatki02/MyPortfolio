@@ -3,13 +3,14 @@ import { CodeIcon, HomeIcon, NotebookIcon, PencilLine } from "lucide-react";
 
 export const DATA = {
     name: "Yash Patki",
+    position: 'Front-End Engineer @ Amazon',
     initials: "YP",
     url: "https://yashpatki.me",
     resumeUrl:
         "https://drive.google.com/file/d/1_esz2n_VcZOM3pYDviB3LYvGvAXg_KJX/view?usp=sharing",
     location: "Thousand Oaks, CA",
     description:
-        "Recent new-grad with a B.S. in Computer Science-Math. Experienced web developer, designer, and AI enthusiast. Actively seeking opportunities to grow as a software engineer.",
+        "Recent UCSD new-grad with a B.S. in Computer Science-Math. Experienced web developer, designer, and AI enthusiast.",
     summary:
         "Enjoy building full-stack applications from concept to completion. Passionate about creating intuitive, scalable, and accessible user experiences. Like to challenge myself, work in collaborative environments, and learn new technologies.",
     avatarUrl: "/me.jpg",
@@ -97,6 +98,17 @@ export const DATA = {
         },
     },
     work: [
+        {
+            company: "Amazon",
+            href: "https://www.amazon.com/",
+            location: "Tempe, AZ",
+            title: "Front-End Engineer",
+            logoUrl: "/amazon.png",
+            start: "Nov 2024",
+            end: "Present",
+            description:
+                "Working to develop and maintain the services. Learning best practices, improving code-reusability and robustness, and ensuring ideal customer experience.",
+        },
         {
             company: "CodePath",
             href: "https://codepath.org/",
