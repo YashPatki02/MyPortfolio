@@ -7,6 +7,8 @@ import "./globals.css";
 import ResumeButton from "@/components/ResumeButton";
 import { ToggleMode } from "@/components/ToggleMode";
 import Link from "next/link";
+import Footer from "@/components/Footer";
+import { DATA } from "@/lib/data";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 
@@ -63,7 +65,7 @@ export default function RootLayout({
                         <nav className="flex flex-row justify-between items-center mx-4 sm:mx-8 pb-2 border-b">
                             <Link href="/">
                                 <div className="text-2xl font-400 font-serif">
-                                    Yash Patki.
+                                    {DATA.name}.
                                 </div>
                             </Link>
 
@@ -78,11 +80,7 @@ export default function RootLayout({
                         </nav>
                     </header>
                     {children}
-                    <footer className="pt-3">
-                        <div className="mt-4 mb-4 text-center w-full text-sm text-muted-foreground">
-                            &copy; 2021 Yash Patki. All rights reserved.
-                        </div>
-                    </footer>
+                    <Footer />
                 </ThemeProvider>
             </body>
         </html>

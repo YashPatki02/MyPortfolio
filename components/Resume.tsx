@@ -28,9 +28,9 @@ const Resume = () => {
         "0%", // Default
         "80%", // selected == 1
         "70%", // selected == 2
-        "20%", // selected == 3
+        "5%", // selected == 3
         "0%", // selected == 4
-        "0%", // selected == 5
+        "10%", // selected == 5
     ];
 
     // Use the scrollYProgress to create a transform value
@@ -148,7 +148,7 @@ const Resume = () => {
                                 <Avatar className="border size-20">
                                     <AvatarImage
                                         src={DATA.avatarUrl}
-                                        alt="Yash Patki"
+                                        alt={DATA.name}
                                         className="object-cover"
                                     />
                                     <AvatarFallback>
@@ -195,68 +195,19 @@ const Resume = () => {
                         className="mb-4 ml-4 mt-14 mr-8 divide-y divide-dashed border-l border-sky-600"
                         style={{ y: yTransform }}
                     >
-                        <BlurFade delay={0.05}>
-                            <Education
-                                title="University of California San Diego"
-                                degree="B.S. Computer Science-Mathematics, Minor in Business"
-                                description={[
-                                    "Graduated with a 3.72 GPA",
-                                    "Took CS courses in Algorithms, Data Structures, Machine Learning, Data Science, Software Engineering, and more",
-                                    "Took Math courses in Linear Algebra, Probability, Statistics, Graph Theory, and more",
-                                ]}
-                                dates="Sep 2020 - Jun 2024"
-                                location="San Diego, CA"
-                                image="/ucsd.png"
-                                clubs={[
-                                    {
-                                        title: "ACM",
-                                        description: [
-                                            "Member (2021-2024)",
-                                            "Hackathon 3rd Place (2024)",
-                                        ],
-                                        image: "/acm.png",
-                                    },
-                                    {
-                                        title: "UCSD Cricket",
-                                        description: [
-                                            "Member (2021-2024)",
-                                            "Captain and President (2022-2023)",
-                                            "Vice President (2023-2024)",
-                                        ],
-                                        image: "/ucsd.png",
-                                    },
-                                ]}
-                            />
-                        </BlurFade>
-                        <BlurFade delay={0.1}>
-                            <Education
-                                title="Thousand Oaks High School"
-                                degree="High School Diploma"
-                                description={[
-                                    "AP Scholar",
-                                    "Graduated with a 4.6 GPA",
-                                ]}
-                                dates="Aug 2016 - Jun 2020"
-                                location="Thousand Oaks, CA"
-                                image="/tohs.png"
-                                clubs={[
-                                    {
-                                        title: "The Center for Advanced Studies and Research",
-                                        description: [
-                                            "AP Seminar (AP Score: 4)",
-                                            "AP Research (AP Score: 5)",
-                                        ],
-                                        image: "/center.jpg",
-                                    },
-                                    {
-                                        title: "Scholar Athlete",
-                                        description: [
-                                            "Good Grades as Varsity Athlete (2016-2020)",
-                                        ],
-                                    },
-                                ]}
-                            />
-                        </BlurFade>
+                        {DATA.education.map((edu, idx) => (
+                            <BlurFade delay={0.05 + idx * 0.05} key={idx}>
+                                <Education
+                                    title={edu.title}
+                                    degree={edu.degree}
+                                    description={edu.description}
+                                    dates={edu.dates}
+                                    location={edu.location}
+                                    image={edu.image}
+                                    clubs={edu.clubs}
+                                />
+                            </BlurFade>
+                        ))}
                     </motion.ul>
                 )}
                 {selected == 3 && (

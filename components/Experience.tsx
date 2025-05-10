@@ -44,13 +44,13 @@ const Experience = ({
                 </Link>
             </div>
             <div className="flex flex-1 flex-col justify-start gap-1 ">
-                <div className="flex items-center justify-between gap-2 max-lg:flex-col max-lg:items-start">
+                <div className="flex items-center justify-between gap-1 max-lg:flex-col max-lg:items-start">
                     <div>
                         <h2 className="font-semibold leading-none">
                             {company}
                         </h2>
                         {title && (
-                            <span className="prose dark:prose-invert text-sm text-muted-foreground">
+                            <span className="prose dark:prose-invert text-xs text-muted-foreground">
                                 {title}
                             </span>
                         )}
@@ -64,7 +64,7 @@ const Experience = ({
                     </div>
                 </div>
                 {description && (
-                    <p className="prose dark:prose-invert text-sm ">
+                    <p className="prose dark:prose-invert text-xs">
                         {description}
                     </p>
                 )}

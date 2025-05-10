@@ -3,7 +3,8 @@ import { CodeIcon, HomeIcon, NotebookIcon, PencilLine } from "lucide-react";
 
 export const DATA = {
     name: "Yash Patki",
-    position: 'Front-End Engineer @ Amazon',
+    yearMade: "2024",
+    position: "Front-End Engineer @ Amazon",
     initials: "YP",
     url: "https://yashpatki.me",
     resumeUrl:
@@ -431,6 +432,61 @@ export const DATA = {
             href: "https://www.linkedin.com/in/yash-patki-b17336164/details/certifications/1703047576304/single-media-viewer/?profileId=ACoAACc0RcMBdNkQALbg_tTTk8UYHI_VEyBZic0",
             title: "Advanced Web Development Course",
             logoUrl: "/codepath.png",
+        },
+    ],
+    education: [
+        {
+            title: "University of California San Diego",
+            degree: "B.S. Computer Science-Mathematics, Minor in Business",
+            description: [
+                "Graduated with a 3.72 GPA",
+                "Took CS courses in Algorithms, Data Structures, Machine Learning, Data Science, Software Engineering, and more",
+                "Took Math courses in Linear Algebra, Probability, Statistics, Graph Theory, and more",
+            ],
+            dates: "Sep 2020 - Jun 2024",
+            location: "San Diego, CA",
+            image: "/ucsd.png",
+            clubs: [
+                {
+                    title: "ACM",
+                    description: [
+                        "Member (2021-2024)",
+                        "Hackathon 3rd Place (2024)",
+                    ],
+                    image: "/acm.png",
+                },
+                {
+                    title: "UCSD Cricket",
+                    description: [
+                        "Member (2021-2024)",
+                        "Captain and President (2022-2023)",
+                        "Vice President (2023-2024)",
+                    ],
+                    image: "/ucsd.png",
+                },
+            ],
+        },
+        {
+            title: "Thousand Oaks High School",
+            degree: "High School Diploma",
+            description: ["AP Scholar", "Graduated with a 4.6 GPA"],
+            dates: "Aug 2016 - Jun 2020",
+            location: "Thousand Oaks, CA",
+            image: "/tohs.png",
+            clubs: [
+                {
+                    title: "The Center for Advanced Studies and Research",
+                    description: [
+                        "AP Seminar (AP Score: 4)",
+                        "AP Research (AP Score: 5)",
+                    ],
+                    image: "/center.jpg",
+                },
+                {
+                    title: "Scholar Athlete",
+                    description: ["Good Grades as Varsity Athlete (2016-2020)"],
+                },
+            ],
         },
     ],
 };

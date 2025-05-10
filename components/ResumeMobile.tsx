@@ -18,22 +18,22 @@ const ResumeMobile = () => {
             <div className="flex flex-col items-start justify-center z-10 m-10">
                 <div className="mb-4 ml-4 mt-8 mr-6">
                     <div className="flex flex-row items-center justify-start gap-6">
-                            <div>
-                                <h1 className="mt-4 text-2xl font-semibold">
-                                    Hi, I&apos;m {DATA.name} 👋
-                                </h1>
-                                <h2 className="text-muted-foreground">
-                                    {DATA.position}
-                                </h2>
-                            </div>
-                            <Avatar className="border size-20">
-                                <AvatarImage
-                                    src={DATA.avatarUrl}
-                                    alt="Yash Patki"
-                                    className="object-cover"
-                                />
-                                <AvatarFallback>{DATA.initials}</AvatarFallback>
-                            </Avatar>
+                        <div>
+                            <h1 className="mt-4 text-2xl font-semibold">
+                                Hi, I&apos;m {DATA.name} 👋
+                            </h1>
+                            <h2 className="text-muted-foreground">
+                                {DATA.position}
+                            </h2>
+                        </div>
+                        <Avatar className="border size-20">
+                            <AvatarImage
+                                src={DATA.avatarUrl}
+                                alt={DATA.name}
+                                className="object-cover"
+                            />
+                            <AvatarFallback>{DATA.initials}</AvatarFallback>
+                        </Avatar>
                     </div>
 
                     <BlurFade delay={0.05}>
@@ -62,68 +62,19 @@ const ResumeMobile = () => {
                 </div>
 
                 <ul className="mb-4 ml-4 mt-14 mr-8 divide-y divide-dashed border-l border-sky-600">
-                    <BlurFade delay={0.1}>
-                        <Education
-                            title="University of California San Diego"
-                            degree="B.S. Computer Science-Mathematics, Minor in Business"
-                            description={[
-                                "Graduated with a 3.72 GPA",
-                                "Took CS courses in Algorithms, Data Structures, Machine Learning, Data Science, Software Engineering, and more",
-                                "Took Math courses in Linear Algebra, Probability, Statistics, Graph Theory, and more",
-                            ]}
-                            dates="Sep 2020 - Jun 2024"
-                            location="San Diego, CA"
-                            image="/ucsd.png"
-                            clubs={[
-                                {
-                                    title: "ACM",
-                                    description: [
-                                        "Member (2021-2024)",
-                                        "Hackathon 3rd Place (2024)",
-                                    ],
-                                    image: "/acm.png",
-                                },
-                                {
-                                    title: "UCSD Cricket",
-                                    description: [
-                                        "Member (2021-2024)",
-                                        "Captain and President (2022-2023)",
-                                        "Vice President (2023-2024)",
-                                    ],
-                                    image: "/ucsd.png",
-                                },
-                            ]}
-                        />
-                    </BlurFade>
-                    <BlurFade delay={0.15}>
-                        <Education
-                            title="Thousand Oaks High School"
-                            degree="High School Diploma"
-                            description={[
-                                "AP Scholar",
-                                "Graduated with a 4.6 GPA",
-                            ]}
-                            dates="Aug 2016 - Jun 2020"
-                            location="Thousand Oaks, CA"
-                            image="/tohs.png"
-                            clubs={[
-                                {
-                                    title: "The Center for Advanced Studies and Research",
-                                    description: [
-                                        "AP Seminar (AP Score: 4)",
-                                        "AP Research (AP Score: 5)",
-                                    ],
-                                    image: "/center.jpg",
-                                },
-                                {
-                                    title: "Scholar Athlete",
-                                    description: [
-                                        "Good Grades as Varsity Athlete (2016-2020)",
-                                    ],
-                                },
-                            ]}
-                        />
-                    </BlurFade>
+                    {DATA.education.map((edu, idx) => (
+                        <BlurFade delay={0.1 + idx * 0.05} key={idx}>
+                            <Education
+                                title={edu.title}
+                                degree={edu.degree}
+                                description={edu.description}
+                                dates={edu.dates}
+                                location={edu.location}
+                                image={edu.image}
+                                clubs={edu.clubs}
+                            />
+                        </BlurFade>
+                    ))}
                 </ul>
 
                 <ul className="mb-4 ml-4 mt-16 mr-8 divide-y divide-dashed border-l border-sky-600">
